@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { FluidHeader } from '../Styles/Atoms';
+import { Memento } from '../Patterns/Memento/Memento';
 
 export const MementoPage: FC = () => {
-  return <FluidHeader>Memento Design Pattern</FluidHeader>;
+  return <Memento />;
 };
