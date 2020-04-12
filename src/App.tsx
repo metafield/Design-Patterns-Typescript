@@ -4,10 +4,12 @@ import { IndexPage } from './Pages/Index';
 import { MementoPage } from './Pages/MementoPage';
 import { Nav } from './Components/Nav';
 import { Links } from './Content/Links';
+import { GlobalStyle } from './Styles/GlobalStyle';
 
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Nav links={Links} />
       <Route path="/" component={IndexPage} exact />
       <Route path="/patterns/memento" component={MementoPage} exact />

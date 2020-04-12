@@ -25,13 +25,17 @@ export const Nav: FC<Props> = ({ links }) => {
 };
 
 const Menu = styled.nav`
+  display: grid;
+  grid-template-columns: var(--grid);
+  > * {
+    grid-column: 2;
+  }
   ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
   }
 
   li {
-    margin: 0 1rem;
+    display: inline;
+    margin-right: 1rem;
+    font: 400 1.2rem/1.5rem var(--body-font);
   }
 `;

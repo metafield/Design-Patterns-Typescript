@@ -8,7 +8,7 @@ export const Links = [
   createLink('Home', '/', 'Back to Home'),
   createLink(
     'Memento',
-    'patterns/memento',
+    '/patterns/memento',
     'The memento pattern as described by the Gang of Four.'
   ),
 ];
