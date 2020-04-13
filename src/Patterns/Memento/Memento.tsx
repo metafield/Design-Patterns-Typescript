@@ -1,25 +1,55 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FluidHeader } from '../../Styles/Atoms';
 import { Editor } from './Editor';
+import { breakPoints } from '../../Styles/breakPoints';
+
+const editor = new Editor('woop');
 
 export const Memento: FC = () => {
-  const editor = new Editor('Enter Something');
+  const intialContent = 'Enter Something';
+  const [content, setContent] = useState(intialContent);
+
+  const textInputRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleContentChange = (e: React.MouseEvent) => {
+    if (textInputRef.current) {
+      const newValue = textInputRef.current.value;
+      setContent(newValue);
+      editor.setContent(newValue);
+      textInputRef.current.value = '';
+    }
+  };
+
+  const handleUndo = (e: React.MouseEvent) => {
+    editor.undo();
+    setContent(editor.content);
+  };
 
   return (
     <Container>
       <FluidHeader>Memento Design Pattern</FluidHeader>
 
       <EditorContainer>
+        <div>
+          <Heading>Current Value</Heading>
+          <Content>{content}</Content>
+        </div>
         <Controls>
+          <Heading>Controls</Heading>
           <Label htmlFor="content-input">Type Something and hit change:</Label>
-          <ContentInput id="content-input" />
+          <ContentInput id="content-input" ref={textInputRef} />
           <Buttons>
-            <Button>change</Button>
-            <Button>undo</Button>
+            <Button onClick={handleContentChange}>change</Button>
+            <Button onClick={handleUndo}>undo</Button>
           </Buttons>
         </Controls>
-        <Content>{editor.content}</Content>
+        <History>
+          <Heading>History</Heading>
+          {editor.getHistory().map((item) => (
+            <li key={Math.random()}>{item}</li>
+          ))}
+        </History>
       </EditorContainer>
     </Container>
   );
@@ -59,7 +89,11 @@ const Container = styled.section`
 
 const Controls = styled.div``;
 
-const Content = styled.h2``;
+const Content = styled.h1`
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary);
+`;
 
 const ContentInput = styled.textarea`
   width: 100%;
@@ -71,10 +105,24 @@ const ContentInput = styled.textarea`
   font-family: var(--body-font);
 `;
 
+const Heading = styled.h2`
+  font: 400 1.6rem/1.6rem var(--display-font);
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
+const History = styled.ul`
+  margin: 0 auto;
+`;
+
 const Label = styled.label``;
 
 const EditorContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 50px;
+  @media (min-width: ${breakPoints.tablet}) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+  }
 `;

@@ -19,11 +19,6 @@ export const GlobalStyle = createGlobalStyle`
   --light-grey: hsl(0, 0%, 85%);
   --mid-grey: hsl(0, 0%, 50%);
   --dark-grey: hsl(0, 0%, 25%);
-
-  --mobile: 576px;
-  --tablet: 768px;
-  --desktop: 992px;
-  --wide: 1200px;
   
   --grid: minmax(15px, 1fr) minmax(0, 80%) minmax(15px, 1fr);
   
