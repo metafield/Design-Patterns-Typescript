@@ -1,36 +1,21 @@
-export class Editor<T> {
-  private history: T[] = [];
+import { EditorState } from './EditorState';
 
-  constructor(public content: T) {
-    console.log('i was constructed');
+export class Editor {
+  private content = '';
+
+  createState(): EditorState {
+    return new EditorState(this.content);
   }
 
-  setContent(newContent: T) {
-    console.log(
-      `the history was: -${this.history}- adding this old content: -${this.content}-`
-    );
-
-    this.history.push(this.content);
-    console.log(
-      `setting the curContent which is: -${this.content}- to the new content: -${newContent}-`
-    );
-    this.content = newContent;
-
-    console.log(`This content is now: -${this.content}`);
+  restore(state: EditorState): void {
+    this.content = state.content;
   }
 
-  public getHistory(): T[] {
-    return this.history;
+  setContent(content: string) {
+    this.content = content;
   }
 
-  public undo() {
-    if (this.history.length) {
-      const lastContent = this.history.pop();
-      if (lastContent === undefined) {
-        return;
-      }
-
-      this.content = lastContent;
-    }
+  getContent(): string {
+    return this.content;
   }
 }

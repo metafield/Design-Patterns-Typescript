@@ -3,8 +3,16 @@ import styled from 'styled-components';
 import { FluidHeader } from '../../Styles/Atoms';
 import { Editor } from './Editor';
 import { breakPoints } from '../../Styles/breakPoints';
+import { History } from '../Memento/History';
 
-const editor = new Editor('woop');
+const editor = new Editor();
+const history = new History();
+
+editor.setContent('first piece of content');
+history.push(editor.createState());
+editor.setContent('second piece of content');
+history.push(editor.createState());
+editor.setContent('third piece of content');
 
 export const Memento: FC = () => {
   const intialContent = 'Enter Something';
@@ -17,13 +25,19 @@ export const Memento: FC = () => {
       const newValue = textInputRef.current.value;
       setContent(newValue);
       editor.setContent(newValue);
+      history.push(editor.createState());
       textInputRef.current.value = '';
     }
   };
 
   const handleUndo = (e: React.MouseEvent) => {
-    editor.undo();
-    setContent(editor.content);
+    const prevState = history.pop() || editor.createState();
+    if (!prevState) {
+      return;
+    }
+
+    editor.restore(prevState);
+    setContent(editor.getContent());
   };
 
   return (
@@ -33,7 +47,7 @@ export const Memento: FC = () => {
       <EditorContainer>
         <div>
           <Heading>Current Value</Heading>
-          <Content>{content}</Content>
+          <Content>{editor.getContent()}</Content>
         </div>
         <Controls>
           <Heading>Controls</Heading>
@@ -44,12 +58,12 @@ export const Memento: FC = () => {
             <Button onClick={handleUndo}>undo</Button>
           </Buttons>
         </Controls>
-        <History>
+        <HistoryPane>
           <Heading>History</Heading>
-          {editor.getHistory().map((item) => (
-            <li key={Math.random()}>{item}</li>
+          {history.getStates().map((item) => (
+            <li key={Math.random()}>{item.content}</li>
           ))}
-        </History>
+        </HistoryPane>
       </EditorContainer>
     </Container>
   );
@@ -111,7 +125,7 @@ const Heading = styled.h2`
   margin-bottom: 2rem;
 `;
 
-const History = styled.ul`
+const HistoryPane = styled.ul`
   margin: 0 auto;
 `;
 
