@@ -4,12 +4,12 @@ import { Tool } from './Tool';
 export class Canvas {
   private currentTool = new SelectionTool();
 
-  public mouseDown() {
-    this.currentTool.mouseDown();
+  public mouseDown(): string {
+    return this.currentTool.mouseDown();
   }
 
-  public mouseUp() {
-    this.currentTool.mouseUp();
+  public mouseUp(): string {
+    return this.currentTool.mouseUp();
   }
 
   getCurrentTool(): Tool {

@@ -2,12 +2,12 @@ import { Tool } from './Tool';
 import { CursorType } from './CursorType';
 
 export class SelectionTool implements Tool {
-  cursorStyle = CursorType.GRAB;
+  cursorStyle = CursorType.SELECT;
 
-  mouseDown(): void {
-    console.log('Selection icon');
+  mouseDown(): string {
+    return 'Starting Selection Tool';
   }
-  mouseUp(): void {
-    console.log('Draw selection box');
+  mouseUp(): string {
+    return 'Ending Selection Tool';
   }
 }

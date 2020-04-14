@@ -1,15 +1,17 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { FluidHeader } from '../../Styles/Atoms';
+import { FluidHeader, Heading } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
 import { CursorType } from './CursorType';
 import { Tool } from './Tool';
 import { Canvas } from './Canvas';
 import { SelectionTool } from './SelectionTool';
 import { BrushTool } from './BrushTool';
+import { MoveTool } from './MoveTool';
 
 export const State: FC = () => {
   const [canvas, setCanvas] = useState(() => new Canvas());
+  const [log, setLog] = useState(['']);
 
   const switchTool = (tool: Tool) => {
     canvas.setCurrentTool(tool);
@@ -18,22 +20,69 @@ export const State: FC = () => {
     setCanvas(newCanvas);
   };
 
+  const addToLog = (entry: string): void => {
+    setLog((log) => {
+      if (log.length > 20) {
+        log.pop();
+      }
+
+      return [entry, ...log];
+    });
+  };
+
+  const handleCanvasMouseDown = () => {
+    addToLog(canvas.mouseDown());
+  };
+
+  const handleCanvasMouseUp = () => {
+    addToLog(canvas.mouseUp());
+  };
+
   return (
     <Container>
       <FluidHeader>State Design Pattern</FluidHeader>
-      <Button onClick={() => console.log(canvas.getCurrentTool())}>
-        curTool
-      </Button>
+
+      <Article>
+        <Heading>Canvas Example</Heading>
+        <p>
+          A canvas or paint application is a good use case for the state
+          pattern. The Canvas benefits from its fields being programmed to some
+          abstract concept such as a Tool interface. By using an interface we
+          can easily add new tools to our canvas class without ever needing to
+          change the Canvas implementation.
+        </p>
+
+        <p>
+          This is not a fully functioning paint app but you can select some
+          tools on the left and watch as the cursor icons, mouse down and mouse
+          up correctly reflect the newly selected tool.
+        </p>
+      </Article>
+
       <CanvasGrid>
         <Toolbar>
           <Button onClick={() => switchTool(new SelectionTool())}>S</Button>
           <Button onClick={() => switchTool(new BrushTool())}>B</Button>
+          <Button onClick={() => switchTool(new MoveTool())}>M</Button>
         </Toolbar>
-        <DummyCanvas cursor={canvas.getCurrentTool().cursorStyle} />
+        <DummyCanvas
+          cursor={canvas.getCurrentTool().cursorStyle}
+          onMouseDown={handleCanvasMouseDown}
+          onMouseUp={handleCanvasMouseUp}
+        />
+        <Log readOnly value={log.join('\n')} />
       </CanvasGrid>
     </Container>
   );
 };
+
+const Article = styled.article`
+  justify-self: center;
+
+  @media (min-width: ${breakPoints.tablet}) {
+    max-width: 50%;
+  }
+`;
 
 const Button = styled.button`
   color: var(--primary);
@@ -60,7 +109,8 @@ const Container = styled.section`
 
 const CanvasGrid = styled.div`
   display: grid;
-  grid-template-columns: 32px 1fr;
+  grid-template-columns: 32px 1fr 1fr;
+  justify-content: center;
 `;
 
 interface CanvasProps {
@@ -69,16 +119,18 @@ interface CanvasProps {
 
 const DummyCanvas = styled.div<CanvasProps>`
   cursor: ${(props) => props.cursor};
-  height: 400px;
-  width: 400px;
+  height: 200px;
   background-color: purple;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 50px;
+
   @media (min-width: ${breakPoints.tablet}) {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 50px;
+    height: 400px;
   }
+`;
+
+const Log = styled.textarea`
+  background-image: linear-gradient(#f1f1f1 50%, #f9f9f9 50%);
+  background-size: 100% 2rem;
+  resize: none;
 `;
 
 const Toolbar = styled.div`
