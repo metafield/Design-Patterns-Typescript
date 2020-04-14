@@ -1,6 +1,6 @@
 export enum CursorType {
   MOVE = 'move',
-  GRAB = 'grab',
+  GRAB = 'pointer',
   TEXT = 'text',
   ZOOM = 'zoom-in',
   CROSS = 'crosshair',
