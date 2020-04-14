@@ -11,4 +11,9 @@ export const Links = [
     '/patterns/memento',
     'The memento pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'State',
+    '/patterns/state',
+    'The state pattern as described by the Gang of Four.'
+  ),
 ];

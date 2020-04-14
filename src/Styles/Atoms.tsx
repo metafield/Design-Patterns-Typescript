@@ -25,3 +25,9 @@ export const InternalLink = styled(NavLink)`
 export const ExternalLink = () => {
   return styled.a.attrs(() => ({ rel: 'noreferrer noopener' }))``;
 };
+
+export const Heading = styled.h2`
+  font: 400 1.6rem/1.6rem var(--display-font);
+  text-align: center;
+  margin-bottom: 2rem;
+`;
