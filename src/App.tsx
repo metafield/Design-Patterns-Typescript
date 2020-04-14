@@ -1,11 +1,19 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { IndexPage } from './Pages/Index';
+import { MementoPage } from './Pages/MementoPage';
+import { Nav } from './Components/Nav';
+import { Links } from './Content/Links';
+import { GlobalStyle } from './Styles/GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Typescript Design Patterns</header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Nav links={Links} />
+      <Route path="/" component={IndexPage} exact />
+      <Route path="/patterns/memento" component={MementoPage} exact />
+    </BrowserRouter>
   );
 }
 
