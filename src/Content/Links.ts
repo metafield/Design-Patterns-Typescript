@@ -16,4 +16,9 @@ export const Links = [
     '/patterns/state',
     'The state pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Iterator',
+    '/patterns/iterator',
+    'The Iterator pattern as described by the Gang of Four.'
+  ),
 ];

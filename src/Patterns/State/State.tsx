@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { FluidHeader, Heading } from '../../Styles/Atoms';
+import { FluidHeader, Heading, Article, Button } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
 import { CursorType } from './CursorType';
 import { Tool } from './Tool';
@@ -75,29 +75,6 @@ export const State: FC = () => {
     </Container>
   );
 };
-
-const Article = styled.article`
-  justify-self: center;
-
-  @media (min-width: ${breakPoints.tablet}) {
-    max-width: 50%;
-  }
-`;
-
-const Button = styled.button`
-  color: var(--primary);
-  padding: 8px 8px;
-  font-size: 1rem;
-  background-color: #eaeaea;
-  font-weight: bold;
-  border: solid 1px #999;
-  cursor: pointer;
-  transition: color 0.3s ease-in, background-color 0.2s ease-in;
-  :hover {
-    background-color: var(--primary);
-    color: #eaeaea;
-  }
-`;
 
 const Container = styled.section`
   display: grid;

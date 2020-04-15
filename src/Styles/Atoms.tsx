@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { breakPoints } from './breakPoints';
+
+export const Article = styled.article`
+  justify-self: center;
+
+  @media (min-width: ${breakPoints.tablet}) {
+    max-width: 50%;
+  }
+`;
+
+export const Button = styled.button`
+  color: var(--primary);
+  padding: 8px;
+  font-size: 1rem;
+  background-color: #eaeaea;
+  font-weight: bold;
+  border: solid 1px #999;
+  cursor: pointer;
+  transition: color 0.3s ease-in, background-color 0.2s ease-in;
+  :hover {
+    background-color: var(--primary);
+    color: #eaeaea;
+  }
+`;
 
 export const FluidHeader = styled.h1`
   background-color: var(--primary);
