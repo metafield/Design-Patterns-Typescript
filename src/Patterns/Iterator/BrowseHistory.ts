@@ -23,7 +23,7 @@ export class BrowseHistory {
   }
 
   /* =============
-    We could add a subclass for ListIterator, UserIterator, AnythingIterator here
+    We could add an inner class for ListIterator, UserIterator, AnythingIterator here
     Returning an Anonymous class here is the closest thing we have to a inner class in Typescript.
     It's important to realize why we use a nested class here and not just make another file. It's because
     this is coded to an interface: Iterator and while patterns like the state pattern do create separate classes,
