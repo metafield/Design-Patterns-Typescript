@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { FluidHeader } from '../../Styles/Atoms';
+import { FluidHeader, Article } from '../../Styles/Atoms';
 import { Editor } from './Editor';
 import { breakPoints } from '../../Styles/breakPoints';
 import { History } from '../Memento/History';
@@ -15,8 +15,8 @@ history.push(editor.createState());
 editor.setContent('third piece of content');
 
 export const Memento: FC = () => {
-  const intialContent = 'Enter Something';
-  const [content, setContent] = useState(intialContent);
+  const initialContent = 'Enter Something';
+  const [content, setContent] = useState(initialContent);
 
   const textInputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -43,6 +43,14 @@ export const Memento: FC = () => {
   return (
     <Container>
       <FluidHeader>Memento Design Pattern</FluidHeader>
+
+      <Article>
+        <Heading>Text field example</Heading>
+        <p>
+          The Memento pattern allows us to store states of our class and then
+          recall them later.
+        </p>
+      </Article>
 
       <EditorContainer>
         <div>

@@ -31,14 +31,44 @@ export const IteratorSolution: FC = () => {
     iterator.next();
   }
 
+  const code = [
+    `export interface Iterator<T> {`,
+    `  hasNext(): boolean;`,
+    `  current(): T;`,
+    `  next(): void;`,
+    `}`,
+  ];
+
   return (
     <Container>
       <FluidHeader>Iterator Design Pattern</FluidHeader>
 
       <Article>
         <Heading>Browser History Example</Heading>
-        <p>blah blah</p>
-        <p>blah blah</p>
+        <p>
+          By returning a class that programs to this interface: <br />
+          <br />
+          {code.map((code) => (
+            <>
+              <code>{code}</code>
+              <br />
+            </>
+          ))}
+        </p>
+        <p>
+          We can decide the best way to iterate over our collection in order to
+          return the items and do what we want with them until the <b>.next </b>
+          function returns false.
+        </p>
+
+        <p>
+          Below an ArrayIterator is returned from the History object and we
+          iterate over it in order to display the list. If I later decide to
+          change the History object to store its data as a List or any other
+          collection type all I would have to do it return a new Iterator that
+          conforms to the interface, the code inside the consuming class would
+          not need to be changed.
+        </p>
       </Article>
 
       <ExampleContainer>
