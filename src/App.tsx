@@ -7,6 +7,7 @@ import { Links } from './Content/Links';
 import { GlobalStyle } from './Styles/GlobalStyle';
 import { StatePage } from './Pages/StatePage';
 import { IteratorPage } from './Pages/IteratorPage';
+import { StrategyPage } from './Pages/StrategyPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/patterns/memento" component={MementoPage} exact />
       <Route path="/patterns/state" component={StatePage} exact />
       <Route path="/patterns/iterator" component={IteratorPage} exact />
+      <Route path="/patterns/strategy" component={StrategyPage} exact />
     </BrowserRouter>
   );
 }
