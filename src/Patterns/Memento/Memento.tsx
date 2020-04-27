@@ -15,29 +15,33 @@ history.push(editor.createState());
 editor.setContent('third piece of content');
 
 export const Memento: FC = () => {
-  const initialContent = 'Enter Something';
-  const [content, setContent] = useState(initialContent);
+  const [content, setContent] = useState(editor.getContent());
+  const [curHistory, setCurHistory] = useState(history.getStates());
 
   const textInputRef = useRef<HTMLTextAreaElement>(null);
 
   const handleContentChange = (e: React.MouseEvent) => {
     if (textInputRef.current) {
+      history.push(editor.createState());
+      setCurHistory(history.getStates());
+
       const newValue = textInputRef.current.value;
+
       setContent(newValue);
       editor.setContent(newValue);
-      history.push(editor.createState());
+
       textInputRef.current.value = '';
     }
   };
 
   const handleUndo = (e: React.MouseEvent) => {
-    const prevState = history.pop() || editor.createState();
-    if (!prevState) {
-      return;
-    }
+    const lastState = history.pop();
 
-    editor.restore(prevState);
+    if (lastState === undefined) return;
+
+    editor.restore(lastState);
     setContent(editor.getContent());
+    setCurHistory(history.getStates());
   };
 
   return (
@@ -68,8 +72,8 @@ export const Memento: FC = () => {
         </Controls>
         <HistoryPane>
           <Heading>History</Heading>
-          {history.getStates().map((item) => (
-            <li key={Math.random()}>{item.content}</li>
+          {curHistory.map((state) => (
+            <li key={Math.random()}>{state.content}</li>
           ))}
         </HistoryPane>
       </EditorContainer>
