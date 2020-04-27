@@ -4,9 +4,11 @@ import { FluidHeader, Heading, Article, Button } from '../../Styles/Atoms';
 import { BrowseHistory } from './BrowseHistory';
 import { breakPoints } from '../../Styles/breakPoints';
 import { Iterator } from './Iterator';
+
 interface iterWithIndex extends Iterator<string> {
   index: number;
 }
+
 export const IteratorSolution: FC = () => {
   const [history, setHistory] = useState(BrowseHistory.initHistory());
   const [urlInput, setUrlInput] = useState('');
@@ -49,10 +51,10 @@ export const IteratorSolution: FC = () => {
           By returning a class that programs to this interface: <br />
           <br />
           {code.map((code) => (
-            <>
+            <span key={Math.random()}>
               <code>{code}</code>
               <br />
-            </>
+            </span>
           ))}
         </p>
         <p>
