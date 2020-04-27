@@ -59,4 +59,9 @@ const Log = styled.textarea`
   background-image: linear-gradient(#f1f1f1 50%, #f9f9f9 50%);
   background-size: 100% 2rem;
   resize: none;
+
+  @media (min-width: ${breakPoints.tablet}) {
+    justify-self: center;
+    width: 50%;
+  }
 `;
