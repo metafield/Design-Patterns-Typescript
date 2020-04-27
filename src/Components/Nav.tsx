@@ -27,14 +27,21 @@ export const Nav: FC<Props> = ({ links }) => {
 const Menu = styled.nav`
   display: grid;
   grid-template-columns: var(--grid);
+  background-color: #eee;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow);
+
   > * {
     grid-column: 2;
   }
+
   ul {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   li {
-    display: inline;
     margin-right: 1rem;
     font: 400 1.2rem/1.5rem var(--body-font);
   }
