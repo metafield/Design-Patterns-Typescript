@@ -59,7 +59,7 @@ export const Memento: FC = () => {
       <EditorContainer>
         <div>
           <Heading>Current Value</Heading>
-          <Content>{editor.getContent()}</Content>
+          <Content>{content}</Content>
         </div>
         <Controls>
           <Heading>Controls</Heading>
