@@ -1,9 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { FluidHeader, Heading, Article } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
+import { CustomerService } from './CustomerService';
+import { AddCustomerCommand } from './AddCustomerCommand';
+import { Btn } from './fx/Btn';
 
 export const Command: FC = () => {
+  const [service] = useState(new CustomerService());
+  const [command] = useState(new AddCustomerCommand(service));
+  const [button] = useState(new Btn(command));
+  button.click();
+
   return (
     <Container>
       <FluidHeader>Command Design Pattern</FluidHeader>
@@ -15,7 +23,7 @@ export const Command: FC = () => {
         <p>blah</p>
       </Article>
 
-      {/* <Log readOnly value={logger.entries.join('\n')} rows={8} /> */}
+      <Log readOnly value={service.log.join('\n')} rows={8} />
     </Container>
   );
 };
