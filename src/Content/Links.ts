@@ -26,4 +26,9 @@ export const Links = [
     '/patterns/strategy',
     'The strategy pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Template',
+    '/patterns/template',
+    'The template method pattern as described by the Gang of Four.'
+  ),
 ];
