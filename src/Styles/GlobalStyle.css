@@ -1,7 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-
-export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap');
 
 :root {
   --display-font: 'Poiret One', cursive;
@@ -10,20 +7,19 @@ export const GlobalStyle = createGlobalStyle`
   --white: hsl(0, 0%, 97%);
   --black: hsl(0, 0%, 13%);
   --black-transparent: hsla(0, 0%, 13%, 0.75);
-  
+
   --primary: hsl(243, 100%, 72.4%);
   --primary-transparent: hsla(243, 55%, 100%, 75%);
   --secondary: none;
   --accent: none;
-  
+
   --light-grey: hsl(0, 0%, 85%);
   --mid-grey: hsl(0, 0%, 50%);
   --dark-grey: hsl(0, 0%, 25%);
-  
+
   --grid: minmax(15px, 1fr) minmax(0, 80%) minmax(15px, 1fr);
-  
+
   --shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.075);
-  
 }
 
 * {
@@ -68,4 +64,3 @@ article {
   background-color: var(--primary);
   color: var(--black);
 }
-`;
