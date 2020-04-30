@@ -8,6 +8,7 @@ import { GlobalStyle } from './Styles/GlobalStyle';
 import { StatePage } from './Pages/StatePage';
 import { IteratorPage } from './Pages/IteratorPage';
 import { StrategyPage } from './Pages/StrategyPage';
+import { TemplateMethodPage } from './Pages/TemplateMethodPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/patterns/state" component={StatePage} exact />
       <Route path="/patterns/iterator" component={IteratorPage} exact />
       <Route path="/patterns/strategy" component={StrategyPage} exact />
+      <Route path="/patterns/template" component={TemplateMethodPage} exact />
     </BrowserRouter>
   );
 }
