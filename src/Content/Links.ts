@@ -31,4 +31,9 @@ export const Links = [
     '/patterns/template',
     'The template method pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Command',
+    '/patterns/command',
+    'The command method pattern as described by the Gang of Four.'
+  ),
 ];
