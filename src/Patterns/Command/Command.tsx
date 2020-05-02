@@ -1,6 +1,11 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { FluidHeader, Heading, Article } from '../../Styles/Atoms';
+import {
+  FluidHeader,
+  Heading,
+  Article,
+  ExternalLink,
+} from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
 import { CustomerService } from './CustomerService';
 import { AddCustomerCommand } from './AddCustomerCommand';
@@ -30,7 +35,7 @@ export const Command: FC = () => {
         <Heading>Framework Button Example</Heading>
         <p>
           Used to decouple the caller from the sender. A command can be packaged
-          in a class like the example: AddCusotmerCommand. It adheres to the
+          in a class like the example: AddCustomerCommand. It adheres to the
           interface that the caller (in this case an imaginary button) will also
           use to store execute the command.
         </p>
@@ -38,6 +43,16 @@ export const Command: FC = () => {
           Because these commands are now instances of objects we can log them,
           store them in containers (see source and console.log) and even replay
           them back.
+        </p>
+        <p>
+          <a
+            href="https://gist.github.com/metafield/cd9fab1efea3ce1f5273dbbbd9a5149d"
+            rel="noreferrer noopener"
+          >
+            Here
+          </a>{' '}
+          is a simple example of using this pattern to implement an undo
+          feature:
         </p>
       </Article>
 
