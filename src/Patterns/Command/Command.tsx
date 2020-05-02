@@ -1,11 +1,6 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import {
-  FluidHeader,
-  Heading,
-  Article,
-  ExternalLink,
-} from '../../Styles/Atoms';
+import { FluidHeader, Heading, Article } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
 import { CustomerService } from './CustomerService';
 import { AddCustomerCommand } from './AddCustomerCommand';
