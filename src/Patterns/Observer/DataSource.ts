@@ -17,7 +17,7 @@ export class DataSource extends Observable {
 
   public attach(observer: Observer): void {
     this.observers.push(observer);
-    observer.update(this.value);
+    observer.update();
   }
 
   public detach(observer: Observer): void {
@@ -28,7 +28,7 @@ export class DataSource extends Observable {
 
   protected notify(): void {
     for (const observer of this.observers) {
-      observer.update(this.value);
+      observer.update();
     }
   }
 }

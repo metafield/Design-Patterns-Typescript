@@ -1,14 +1,14 @@
 import { Observer } from './Observer';
-export class Chart implements Observer {
-  private _value: number = 0;
+import { DataSource } from './DataSource';
 
-  update(value: number): void {
-    this.value = value;
+export class Chart implements Observer {
+  constructor(private dataSource: DataSource) {}
+
+  update(): void {
+    console.log('an update occurred and this spreadsheet was notified');
   }
+
   public get value(): number {
-    return this._value;
-  }
-  public set value(newValue: number) {
-    this._value = newValue;
+    return this.dataSource.value;
   }
 }

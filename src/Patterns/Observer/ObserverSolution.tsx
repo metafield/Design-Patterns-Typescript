@@ -10,8 +10,8 @@ import { Log } from '../../Components/Log';
 // set up observable
 const data = new DataSource(0);
 // observers
-const spreadSheet = new SpreadSheet();
-const chart = new Chart();
+const spreadSheet = new SpreadSheet(data);
+const chart = new Chart(data);
 //attach observers to observables
 data.attach(spreadSheet);
 data.attach(chart);
@@ -46,9 +46,27 @@ export const ObserverSolution: FC = () => {
         </p>
 
         <p>
+          There are two variations of this pattern. Pull style where the
+          observer is coupled the the observable and calls its methods to get
+          values upon receiving an update notification (can be useful if you
+          need to call different methods on the observable). And push style
+          where there is no coupling between the concrete classes and the value
+          is just pushed into the update method.
+        </p>
+
+        <p>
+          It's important to note that in this case push style coupling is not
+          actually a bad thing and can actually afford us a lot of
+          functionality.
+        </p>
+
+        <p>
           In this example we have a data source, a spreadsheet and a pie chart.
-          When the data source is updated we notify both the sheet and the
-          chart.
+          When the data source is updated we notify both the sheet and the chart
+          which will call the value getter on the observable for its value.
+          Important to note here that neither the char or the spreadsheet
+          actually hold their own variable for value they are just returning the
+          observables which gives us one source of truth for our data.
         </p>
 
         <p>
