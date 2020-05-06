@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Observer } from '../Patterns/Observer/Observer';
+import { ObserverSolution } from '../Patterns/Observer/ObserverSolution';
 
 export const ObserverPage: FC = () => {
-  return <Observer />;
+  return <ObserverSolution />;
 };
