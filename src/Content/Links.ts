@@ -41,4 +41,9 @@ export const Links = [
     '/patterns/observer',
     'The observer pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Mediator',
+    '/patterns/mediator',
+    'The mediator pattern as described by the Gang of Four.'
+  ),
 ];
