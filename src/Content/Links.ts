@@ -36,4 +36,9 @@ export const Links = [
     '/patterns/command',
     'The command method pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Observer',
+    '/patterns/observer',
+    'The observer pattern as described by the Gang of Four.'
+  ),
 ];
