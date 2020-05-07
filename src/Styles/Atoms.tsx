@@ -23,6 +23,12 @@ export const Button = styled.button`
     background-color: var(--primary);
     color: #eaeaea;
   }
+
+  :disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 `;
 
 export const FluidHeader = styled.h1`
