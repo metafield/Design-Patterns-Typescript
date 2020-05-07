@@ -3,6 +3,7 @@
     "minmax"
   ],
   "cSpell.ignoreWords": [
-    "browserslist"
+    "browserslist",
+    "esnext"
   ]
 }

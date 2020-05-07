@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { FluidHeader, Heading, Article, Button } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
