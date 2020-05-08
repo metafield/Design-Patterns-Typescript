@@ -29,13 +29,23 @@ export const MediatorSolution: FC = () => {
         <p>
           The mediator pattern allows us to get a group of similar objects
           talking to each other without needing to know each other exists by the
-          means of using a container (mediator) to update the state of the
-          contain when things change in each of the components.
+          means of using a container (mediator) to update the state of any
+          number of components when any of them change.
         </p>
         <p>
-          A class (container) extending the Mediator base class will keep track
-          of the components (colleagues). Each colleague will keep a reference
-          to the container and will notify it when its state changes.
+          One way of implementing this is to have a class (container) extending
+          the Mediator base class which will keep track of the components
+          (colleagues). Each colleague will keep a reference to the container
+          and will notify it when its state changes. This creates coupling
+          between the container and the components so a better way would be to
+          also use the Observable pattern together with the mediator pattern.
+        </p>
+
+        <p>
+          To use the Observable pattern we make our uiControls observables and
+          have the container pass in a handler functions to each of them. A
+          control changes, the container is notified and can make the needed
+          changes based on what changed.
         </p>
 
         <p>

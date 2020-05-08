@@ -1,23 +1,24 @@
-import { UIControl } from './UIControl';
 import { TextBox } from './TextBox';
 import { Btn } from './Btn';
 import { ListBox } from './ListBox';
-import { DialogBox } from './DialogBox';
 
-export class ArticlesDialogBox extends DialogBox {
+export class ArticlesDialogBox {
   // to do some simulation form react the next three are set to public
   // if you are making a GUI framework with this pattern they should be private
 
-  public articlesListBox = new ListBox(this);
-  public titleTextBox = new TextBox(this);
-  public saveBtn = new Btn(this);
+  public articlesListBox = new ListBox();
+  public titleTextBox = new TextBox();
+  public saveBtn = new Btn();
 
-  public changed(control: UIControl): void {
-    if (control === this.articlesListBox) {
-      this.articleSelected();
-    } else if (control === this.titleTextBox) {
-      this.titleChanged();
-    }
+  constructor() {
+    this.articlesListBox.addEventHandler({
+      // EventHandler is a functional interface so we can just return an anonymous obj with that function
+      handle: this.articleSelected,
+    });
+
+    this.titleTextBox.addEventHandler({
+      handle: this.titleChanged,
+    });
   }
 
   private titleChanged(): void {
