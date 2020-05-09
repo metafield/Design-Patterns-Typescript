@@ -46,4 +46,9 @@ export const Links = [
     '/patterns/mediator',
     'The mediator pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Chain of Responsibility',
+    '/patterns/chain_of_responsibility',
+    'The Chain of Responsibility pattern as described by the Gang of Four.'
+  ),
 ];

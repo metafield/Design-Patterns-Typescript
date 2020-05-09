@@ -12,6 +12,7 @@ import { TemplateMethodPage } from './Pages/TemplateMethodPage';
 import { CommandPage } from './Pages/CommandPage';
 import { ObserverPage } from './Pages/ObserverPage';
 import { MediatorPage } from './Pages/MediatorPage';
+import { ChainPage } from './Pages/ChainPage';
 
 function App() {
   return (
@@ -26,6 +27,11 @@ function App() {
       <Route path="/patterns/command" component={CommandPage} exact />
       <Route path="/patterns/observer" component={ObserverPage} exact />
       <Route path="/patterns/mediator" component={MediatorPage} exact />
+      <Route
+        path="/patterns/chain_of_responsibility"
+        component={ChainPage}
+        exact
+      />
     </BrowserRouter>
   );
 }
