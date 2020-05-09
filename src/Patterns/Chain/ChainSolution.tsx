@@ -33,12 +33,30 @@ export const ChainSolution: FC = () => {
       <FluidHeader>Chain of Responsibility Design Pattern</FluidHeader>
 
       <Article>
-        <Heading>Example</Heading>
-        <p>blah </p>
+        <Heading>Webserver Example</Heading>
+        <p>
+          The chain of responsibility pattern allows us to set up a pipeline of
+          handlers that will each do their work and call the next handler in the
+          list until there are no more to be called or one fails.
+        </p>
+        <p>
+          Because Handler is an abstract class, the object that requires work
+          does not need to know about any of the classes (the ones that extend
+          handler) that provide said work. All it needs to know is the first
+          handler in the list and once that is fired off the chain should
+          continue to completion or failure.
+        </p>
+
+        <p>
+          In this example we have a chain of Handlers that do work on an
+          incoming web request object. It can either fail authentication and
+          stop the chain or it can succeed and complete the chain of
+          responsibility. Try it out below.
+        </p>
       </Article>
 
       <Example>
-        <label htmlFor="amount">Select, Add or Remove The article:</label>
+        <label htmlFor="amount">Make a HTTP request:</label>
 
         <Buttons>
           <Button onClick={() => fakeRequest(false)}>Request (sad)</Button>
