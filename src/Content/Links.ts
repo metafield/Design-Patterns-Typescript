@@ -51,4 +51,9 @@ export const Links = [
     '/patterns/chain_of_responsibility',
     'The Chain of Responsibility pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Visitor',
+    '/patterns/visitor',
+    'The Visitor pattern as described by the Gang of Four.'
+  ),
 ];

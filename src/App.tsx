@@ -13,6 +13,7 @@ import { CommandPage } from './Pages/CommandPage';
 import { ObserverPage } from './Pages/ObserverPage';
 import { MediatorPage } from './Pages/MediatorPage';
 import { ChainPage } from './Pages/ChainPage';
+import { VisitorPage } from './Pages/VisitorPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         component={ChainPage}
         exact
       />
+      <Route path="/patterns/visitor" component={VisitorPage} exact />
     </BrowserRouter>
   );
 }
