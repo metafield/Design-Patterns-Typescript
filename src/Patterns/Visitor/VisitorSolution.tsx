@@ -22,7 +22,6 @@ export const VisitorSolution: FC = () => {
   }, [anchorNode, htmlDocument, headingNode]);
 
   const handleHighlightBtn = () => {
-    debugger;
     const logger = new ExampleLogger(setLog);
     const highLightOperation = new HighlightOperation(logger);
     htmlDocument.execute(highLightOperation);
@@ -80,7 +79,7 @@ export const VisitorSolution: FC = () => {
       </Article>
 
       <Example>
-        <label htmlFor="amount">Do some operations:</label>
+        <p>Do some operations:</p>
 
         <Buttons>
           <Button onClick={handleHighlightBtn}>Highlight tags</Button>
