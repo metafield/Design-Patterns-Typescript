@@ -4,7 +4,7 @@ import './Styles/GlobalStyle.css';
 import { IndexPage } from './Pages/Index';
 import { MementoPage } from './Pages/MementoPage';
 import { Nav } from './Components/Nav';
-import { Links } from './Content/Links';
+import { behavioralLinks, structuralLinks } from './Content/Links';
 import { StatePage } from './Pages/StatePage';
 import { IteratorPage } from './Pages/IteratorPage';
 import { StrategyPage } from './Pages/StrategyPage';
@@ -14,11 +14,15 @@ import { ObserverPage } from './Pages/ObserverPage';
 import { MediatorPage } from './Pages/MediatorPage';
 import { ChainPage } from './Pages/ChainPage';
 import { VisitorPage } from './Pages/VisitorPage';
+import { CompositePage } from './Pages/CompositePage';
 
 function App() {
   return (
     <BrowserRouter>
-      <Nav links={Links} />
+      <div>
+        <Nav links={behavioralLinks} />
+        <Nav links={structuralLinks} />
+      </div>
       <Route path="/" component={IndexPage} exact />
       <Route path="/patterns/memento" component={MementoPage} exact />
       <Route path="/patterns/state" component={StatePage} exact />
@@ -34,6 +38,7 @@ function App() {
         exact
       />
       <Route path="/patterns/visitor" component={VisitorPage} exact />
+      <Route path="/patterns/composite" component={CompositePage} exact />
     </BrowserRouter>
   );
 }

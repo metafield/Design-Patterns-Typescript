@@ -28,9 +28,12 @@ const Menu = styled.nav`
   display: grid;
   grid-template-columns: var(--grid);
   background-color: #eee;
-  padding: 2rem 0;
-  margin-bottom: 3rem;
+  padding: 1rem 0;
   box-shadow: var(--shadow);
+
+  :last-child {
+    margin-bottom: 3rem;
+  }
 
   > * {
     grid-column: 2;

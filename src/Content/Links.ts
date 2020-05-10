@@ -4,7 +4,15 @@ const createLink = (title: string, url: string, alt: string) => ({
   alt,
 });
 
-export const Links = [
+export const structuralLinks = [
+  createLink(
+    'Composite',
+    '/patterns/composite',
+    'The composite pattern as described by the Gang of Four.'
+  ),
+];
+
+export const behavioralLinks = [
   createLink('Home', '/', 'Back to Home'),
   createLink(
     'Memento',
