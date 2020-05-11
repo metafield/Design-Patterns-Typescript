@@ -17,6 +17,7 @@ import { VisitorPage } from './Pages/VisitorPage';
 import { CompositePage } from './Pages/CompositePage';
 import { AdaptorPage } from './Pages/AdaptorPage';
 import { DecoratorPage } from './Pages/DecoratorPage';
+import { FacadePage } from './Pages/FacadePage';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
       <Route path="/patterns/composite" component={CompositePage} exact />
       <Route path="/patterns/adaptor" component={AdaptorPage} exact />
       <Route path="/patterns/decorator" component={DecoratorPage} exact />
+      <Route path="/patterns/facade" component={FacadePage} exact />
     </BrowserRouter>
   );
 }
