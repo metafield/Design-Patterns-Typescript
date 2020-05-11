@@ -15,6 +15,11 @@ export const structuralLinks = [
     '/patterns/adaptor',
     'The adaptor pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Decorator',
+    '/patterns/decorator',
+    'The decorator pattern as described by the Gang of Four.'
+  ),
 ];
 
 export const behavioralLinks = [
