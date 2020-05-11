@@ -1,5 +1,4 @@
 import { Component } from './Component';
-import { ExampleLogger } from '../../ReactLogger/ExampleLogger';
 import { Logger } from '../../ReactLogger/Logger';
 
 export class Group implements Component {
