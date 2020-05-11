@@ -1,41 +1,73 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FluidHeader, Heading, Article, Button } from '../../Styles/Atoms';
+import { FluidHeader, Heading, Article } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
 import { Log } from '../../Components/Log';
+import { Group } from './Group';
+import { Shape } from './Shape';
 
 export const CompositeSolution: FC = () => {
   const [log, setLog] = useState<string[]>([]);
+
+  const demo = () => {
+    const group1 = new Group(setLog, 'Squares');
+    group1.add(new Shape(setLog, 'Square 1'));
+    group1.add(new Shape(setLog, 'Square 2'));
+
+    const group2 = new Group(setLog, 'Circles');
+    group2.add(new Shape(setLog, 'Circle 1'));
+    group2.add(new Shape(setLog, 'Circle 2'));
+
+    const container = new Group(setLog, 'Container');
+    container.add(group1);
+    container.add(group2);
+
+    container.render();
+    container.move();
+    setLog((log) => [...log, '-----------']);
+  };
+
+  useEffect(demo, []);
 
   return (
     <Container>
       <FluidHeader>Composite Design Pattern</FluidHeader>
 
       <Article>
-        <Heading>Code Editor Example</Heading>
-        <p>blah</p>
+        <Heading>Shapes and Groups Example</Heading>
+        <p>
+          The composite design pattern allows us to take a hierarchy of objects
+          and treat them the some way. Calls of a function can be called on a
+          parent and we will get the expected behavior from all of the children
+          in the hierarchy as well. If we deleted a folder we expect that the
+          child files also have their delete called too.
+        </p>
+
+        <p>
+          Below we have an example with a group of 2 squares(Squares), two
+          circles (Circles) and a group (Container) that contains them both.
+          Squares, Circles and Groups are all components and all haver the
+          render() and move() functions which come form the component interface.
+        </p>
+
+        <p>
+          render() is called on the main container and then move() is called on
+          the same container, watch how the calls propagate down through the
+          children to create a recursive style function.
+        </p>
       </Article>
-
       <Example>
-        <label htmlFor="amount">Do some operations:</label>
-
-        {/* <Buttons>
-          <Button onClick={handleHighlightBtn}>Highlight tags</Button>
-          <Button onClick={handlePlainTextBtn}>Tags to Plain</Button>
-        </Buttons> */}
-        <Log rows={8} entries={log} />
+        <p>container.render()</p>
+        <p>container.move()</p>
+        <Log rows={22} entries={log} />
       </Example>
     </Container>
   );
 };
 
-const Buttons = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
-
 const Container = styled.section`
   display: grid;
+  margin-bottom: 3rem;
   grid-template-columns: var(--grid);
   > * {
     grid-column: 2;
