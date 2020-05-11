@@ -4,12 +4,23 @@ import { FluidHeader, Heading, Article } from '../../Styles/Atoms';
 import { breakPoints } from '../../Styles/breakPoints';
 import { Log } from '../../Components/Log';
 import { ExampleLogger } from '../../ReactLogger/ExampleLogger';
+import { EncryptedCloudStream } from './EncryptedCloudStream';
+import { Stream } from './Stream';
+import { CloudStream } from './CloudStream';
+import { CompressedCloudStream } from './CompressedCloudStream';
 
 export const DecoratorSolution: FC = () => {
   const [log, setLog] = useState<string[]>([]);
 
+  const storeCreditCard = (stream: Stream) => {
+    stream.write('4444-5555-6666-8888');
+  };
+
   const demo = () => {
     const logger = new ExampleLogger(setLog);
+    const cloudStream = new CloudStream(logger);
+    const compressedStream = new CompressedCloudStream(cloudStream, logger);
+    storeCreditCard(new EncryptedCloudStream(compressedStream, logger));
   };
 
   useEffect(demo, []);
@@ -19,13 +30,28 @@ export const DecoratorSolution: FC = () => {
       <FluidHeader>Decorator Design Pattern</FluidHeader>
 
       <Article>
-        <Heading>... Example</Heading>
-        <p>The Decorator design pattern ..</p>
+        <Heading>Stream save/compress/encrypt Example</Heading>
+        <p>
+          The Decorator design pattern allows a flexible alternative to
+          sub-classing for adding extended functionality. We can implement the
+          interface of the object to be extended, add our extra functionality
+          and then forward the requests back to the original interface.
+        </p>
+
+        <p>
+          This is very similar to the adapter pattern except instead of changing
+          one thing to fit another we instead keep the original the same but run
+          our extra code to get what we want.
+        </p>
+
+        <p>
+          Because every decorator implements the original interface we can chain
+          as many of these together to add as much functionality to our object,
+          dynamically as needed.
+        </p>
       </Article>
       <Example>
-        <p>container.render()</p>
-        <p>container.move()</p>
-        <Log rows={22} entries={log} />
+        <Log rows={6} entries={log} />
       </Example>
     </Container>
   );
