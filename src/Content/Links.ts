@@ -10,6 +10,11 @@ export const structuralLinks = [
     '/patterns/composite',
     'The composite pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Adaptor',
+    '/patterns/adaptor',
+    'The adaptor pattern as described by the Gang of Four.'
+  ),
 ];
 
 export const behavioralLinks = [

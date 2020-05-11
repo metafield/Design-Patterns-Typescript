@@ -15,6 +15,7 @@ import { MediatorPage } from './Pages/MediatorPage';
 import { ChainPage } from './Pages/ChainPage';
 import { VisitorPage } from './Pages/VisitorPage';
 import { CompositePage } from './Pages/CompositePage';
+import { AdaptorPage } from './Pages/AdaptorPage';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       />
       <Route path="/patterns/visitor" component={VisitorPage} exact />
       <Route path="/patterns/composite" component={CompositePage} exact />
+      <Route path="/patterns/adaptor" component={AdaptorPage} exact />
     </BrowserRouter>
   );
 }
