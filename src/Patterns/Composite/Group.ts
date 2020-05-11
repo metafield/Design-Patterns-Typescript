@@ -1,10 +1,10 @@
 import { Component } from './Component';
-import { SetLogFunction, ExampleLogger } from '../../ReactLogger/ExampleLogger';
+import { ExampleLogger } from '../../ReactLogger/ExampleLogger';
+import { Logger } from '../../ReactLogger/Logger';
 
 export class Group implements Component {
-  constructor(private setLog: SetLogFunction, private name: string) {}
+  constructor(private logger: Logger, private name: string) {}
 
-  private logger = new ExampleLogger(this.setLog);
   private components: Component[] = [];
 
   add(component: Component) {

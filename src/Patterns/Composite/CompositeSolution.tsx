@@ -5,20 +5,22 @@ import { breakPoints } from '../../Styles/breakPoints';
 import { Log } from '../../Components/Log';
 import { Group } from './Group';
 import { Shape } from './Shape';
+import { ExampleLogger } from '../../ReactLogger/ExampleLogger';
 
 export const CompositeSolution: FC = () => {
   const [log, setLog] = useState<string[]>([]);
 
   const demo = () => {
-    const group1 = new Group(setLog, 'Squares');
-    group1.add(new Shape(setLog, 'Square 1'));
-    group1.add(new Shape(setLog, 'Square 2'));
+    const logger = new ExampleLogger(setLog);
+    const group1 = new Group(logger, 'Squares');
+    group1.add(new Shape(logger, 'Square 1'));
+    group1.add(new Shape(logger, 'Square 2'));
 
-    const group2 = new Group(setLog, 'Circles');
-    group2.add(new Shape(setLog, 'Circle 1'));
-    group2.add(new Shape(setLog, 'Circle 2'));
+    const group2 = new Group(logger, 'Circles');
+    group2.add(new Shape(logger, 'Circle 1'));
+    group2.add(new Shape(logger, 'Circle 2'));
 
-    const container = new Group(setLog, 'Container');
+    const container = new Group(logger, 'Container');
     container.add(group1);
     container.add(group2);
 
