@@ -19,6 +19,7 @@ import { AdaptorPage } from './Pages/AdaptorPage';
 import { DecoratorPage } from './Pages/DecoratorPage';
 import { FacadePage } from './Pages/FacadePage';
 import { FlyweightPage } from './Pages/FlyweightPage';
+import { BridgePage } from './Pages/BridgePage';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
       <Route path="/patterns/decorator" component={DecoratorPage} exact />
       <Route path="/patterns/facade" component={FacadePage} exact />
       <Route path="/patterns/flyweight" component={FlyweightPage} exact />
+      <Route path="/patterns/bridge" component={BridgePage} exact />
     </BrowserRouter>
   );
 }

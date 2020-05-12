@@ -30,6 +30,11 @@ export const structuralLinks = [
     '/patterns/flyweight',
     'The flyweight pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Bridge',
+    '/patterns/bridge',
+    'The bridge pattern as described by the Gang of Four.'
+  ),
 ];
 
 export const behavioralLinks = [
