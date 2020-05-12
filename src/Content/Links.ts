@@ -35,6 +35,11 @@ export const structuralLinks = [
     '/patterns/bridge',
     'The bridge pattern as described by the Gang of Four.'
   ),
+  createLink(
+    'Proxy',
+    '/patterns/proxy',
+    'The proxy pattern as described by the Gang of Four.'
+  ),
 ];
 
 export const behavioralLinks = [

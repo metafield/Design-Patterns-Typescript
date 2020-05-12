@@ -20,6 +20,7 @@ import { DecoratorPage } from './Pages/DecoratorPage';
 import { FacadePage } from './Pages/FacadePage';
 import { FlyweightPage } from './Pages/FlyweightPage';
 import { BridgePage } from './Pages/BridgePage';
+import { ProxyPage } from './Pages/ProxyPage';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
       <Route path="/patterns/facade" component={FacadePage} exact />
       <Route path="/patterns/flyweight" component={FlyweightPage} exact />
       <Route path="/patterns/bridge" component={BridgePage} exact />
+      <Route path="/patterns/proxy" component={ProxyPage} exact />
     </BrowserRouter>
   );
 }
