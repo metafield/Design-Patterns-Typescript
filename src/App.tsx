@@ -30,26 +30,27 @@ function App() {
         <Nav links={structuralLinks} />
       </div>
       <Route path="/" component={IndexPage} exact />
-      <Route path="/patterns/memento" component={MementoPage} />
-      <Route path="/patterns/state" component={StatePage} />
-      <Route path="/patterns/iterator" component={IteratorPage} />
-      <Route path="/patterns/strategy" component={StrategyPage} />
-      <Route path="/patterns/template" component={TemplateMethodPage} />
-      <Route path="/patterns/command" component={CommandPage} />
-      <Route path="/patterns/observer" component={ObserverPage} />
-      <Route path="/patterns/mediator" component={MediatorPage} />
+      <Route path="/patterns/memento" component={MementoPage} exact />
+      <Route path="/patterns/state" component={StatePage} exact />
+      <Route path="/patterns/iterator" component={IteratorPage} exact />
+      <Route path="/patterns/strategy" component={StrategyPage} exact />
+      <Route path="/patterns/template" component={TemplateMethodPage} exact />
+      <Route path="/patterns/command" component={CommandPage} exact />
+      <Route path="/patterns/observer" component={ObserverPage} exact />
+      <Route path="/patterns/mediator" component={MediatorPage} exact />
       <Route
         path="/patterns/chain_of_responsibility"
         component={ChainPage}
+        exact
       />
-      <Route path="/patterns/visitor" component={VisitorPage} />
-      <Route path="/patterns/composite" component={CompositePage} />
-      <Route path="/patterns/adaptor" component={AdaptorPage} />
-      <Route path="/patterns/decorator" component={DecoratorPage} />
-      <Route path="/patterns/facade" component={FacadePage} />
-      <Route path="/patterns/flyweight" component={FlyweightPage} />
-      <Route path="/patterns/bridge" component={BridgePage} />
-      <Route path="/patterns/proxy" component={ProxyPage} />
+      <Route path="/patterns/visitor" component={VisitorPage} exact />
+      <Route path="/patterns/composite" component={CompositePage} exact />
+      <Route path="/patterns/adaptor" component={AdaptorPage} exact />
+      <Route path="/patterns/decorator" component={DecoratorPage} exact />
+      <Route path="/patterns/facade" component={FacadePage} exact />
+      <Route path="/patterns/flyweight" component={FlyweightPage} exact />
+      <Route path="/patterns/bridge" component={BridgePage} exact />
+      <Route path="/patterns/proxy" component={ProxyPage} exact />
     </BrowserRouter>
   );
 }
