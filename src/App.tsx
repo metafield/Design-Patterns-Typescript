@@ -1,26 +1,26 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import './Styles/GlobalStyle.css';
-import { IndexPage } from './Pages/Index';
-import { MementoPage } from './Pages/MementoPage';
-import { Nav } from './Components/Nav';
-import { behavioralLinks, structuralLinks } from './Content/Links';
-import { StatePage } from './Pages/StatePage';
-import { IteratorPage } from './Pages/IteratorPage';
-import { StrategyPage } from './Pages/StrategyPage';
-import { TemplateMethodPage } from './Pages/TemplateMethodPage';
-import { CommandPage } from './Pages/CommandPage';
-import { ObserverPage } from './Pages/ObserverPage';
-import { MediatorPage } from './Pages/MediatorPage';
-import { ChainPage } from './Pages/ChainPage';
-import { VisitorPage } from './Pages/VisitorPage';
-import { CompositePage } from './Pages/CompositePage';
-import { AdaptorPage } from './Pages/AdaptorPage';
-import { DecoratorPage } from './Pages/DecoratorPage';
-import { FacadePage } from './Pages/FacadePage';
-import { FlyweightPage } from './Pages/FlyweightPage';
-import { BridgePage } from './Pages/BridgePage';
-import { ProxyPage } from './Pages/ProxyPage';
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import "./Styles/GlobalStyle.css";
+import { IndexPage } from "./Pages/Index";
+import { MementoPage } from "./Pages/MementoPage";
+import { Nav } from "./Components/Nav";
+import { behavioralLinks, structuralLinks } from "./Content/Links";
+import { StatePage } from "./Pages/StatePage";
+import { IteratorPage } from "./Pages/IteratorPage";
+import { StrategyPage } from "./Pages/StrategyPage";
+import { TemplateMethodPage } from "./Pages/TemplateMethodPage";
+import { CommandPage } from "./Pages/CommandPage";
+import { ObserverPage } from "./Pages/ObserverPage";
+import { MediatorPage } from "./Pages/MediatorPage";
+import { ChainPage } from "./Pages/ChainPage";
+import { VisitorPage } from "./Pages/VisitorPage";
+import { CompositePage } from "./Pages/CompositePage";
+import { AdaptorPage } from "./Pages/AdaptorPage";
+import { DecoratorPage } from "./Pages/DecoratorPage";
+import { FacadePage } from "./Pages/FacadePage";
+import { FlyweightPage } from "./Pages/FlyweightPage";
+import { BridgePage } from "./Pages/BridgePage";
+import { ProxyPage } from "./Pages/ProxyPage";
 
 function App() {
   return (
@@ -30,27 +30,26 @@ function App() {
         <Nav links={structuralLinks} />
       </div>
       <Route path="/" component={IndexPage} exact />
-      <Route path="/patterns/memento" component={MementoPage} exact />
-      <Route path="/patterns/state" component={StatePage} exact />
-      <Route path="/patterns/iterator" component={IteratorPage} exact />
-      <Route path="/patterns/strategy" component={StrategyPage} exact />
-      <Route path="/patterns/template" component={TemplateMethodPage} exact />
-      <Route path="/patterns/command" component={CommandPage} exact />
-      <Route path="/patterns/observer" component={ObserverPage} exact />
-      <Route path="/patterns/mediator" component={MediatorPage} exact />
+      <Route path="/patterns/memento" component={MementoPage} />
+      <Route path="/patterns/state" component={StatePage} />
+      <Route path="/patterns/iterator" component={IteratorPage} />
+      <Route path="/patterns/strategy" component={StrategyPage} />
+      <Route path="/patterns/template" component={TemplateMethodPage} />
+      <Route path="/patterns/command" component={CommandPage} />
+      <Route path="/patterns/observer" component={ObserverPage} />
+      <Route path="/patterns/mediator" component={MediatorPage} />
       <Route
         path="/patterns/chain_of_responsibility"
         component={ChainPage}
-        exact
       />
-      <Route path="/patterns/visitor" component={VisitorPage} exact />
-      <Route path="/patterns/composite" component={CompositePage} exact />
-      <Route path="/patterns/adaptor" component={AdaptorPage} exact />
-      <Route path="/patterns/decorator" component={DecoratorPage} exact />
-      <Route path="/patterns/facade" component={FacadePage} exact />
-      <Route path="/patterns/flyweight" component={FlyweightPage} exact />
-      <Route path="/patterns/bridge" component={BridgePage} exact />
-      <Route path="/patterns/proxy" component={ProxyPage} exact />
+      <Route path="/patterns/visitor" component={VisitorPage} />
+      <Route path="/patterns/composite" component={CompositePage} />
+      <Route path="/patterns/adaptor" component={AdaptorPage} />
+      <Route path="/patterns/decorator" component={DecoratorPage} />
+      <Route path="/patterns/facade" component={FacadePage} />
+      <Route path="/patterns/flyweight" component={FlyweightPage} />
+      <Route path="/patterns/bridge" component={BridgePage} />
+      <Route path="/patterns/proxy" component={ProxyPage} />
     </BrowserRouter>
   );
 }
