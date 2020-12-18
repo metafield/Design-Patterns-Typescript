@@ -56,7 +56,7 @@ export const MediatorSolution: FC = () => {
       </Article>
 
       <Example>
-        <label htmlFor="amount">Select, Add or Remove The article:</label>
+        <label htmlFor="amount">Change the title by either selecting one or editing it via the textbox and be sure to watch the output!</label>
         <select onChange={selectChanged}>
           <option value="Title 1">Title 1</option>
           <option value="Title 2">Title 2</option>

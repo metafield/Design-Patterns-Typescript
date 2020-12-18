@@ -47,7 +47,7 @@ export const VisitorSolution: FC = () => {
         </p>
 
         <p>
-          This example assumes oyu are making a html editor like vsCode. The
+          This example assumes you are making a html editor like vsCode. The
           amount of tags in HTML are final but there are so many different
           functions that can be run on them so the pattern works out quite
           nicely.

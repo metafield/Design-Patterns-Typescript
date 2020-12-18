@@ -21,14 +21,14 @@ export class ArticlesDialogBox {
     });
   }
 
-  private titleChanged(): void {
+  private titleChanged = (): void => {
     const content = this.titleTextBox.content;
     const hasContent = !!content;
     this.saveBtn.isEnabled = hasContent;
-  }
+  };
 
-  private articleSelected(): void {
+  private articleSelected = (): void => {
     this.titleTextBox.content = this.articlesListBox.selection;
     this.saveBtn.isEnabled = true;
-  }
+  };
 }
